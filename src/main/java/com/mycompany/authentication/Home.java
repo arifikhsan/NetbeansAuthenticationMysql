@@ -10,12 +10,19 @@ package com.mycompany.authentication;
  * @author Arif Ikhsanudin
  */
 public class Home extends javax.swing.JFrame {
-
+    public String username;
     /**
      * Creates new form Home
      */
-    public Home() {
+    public Home(String username) {
         initComponents();
+        populateView();
+        this.username = username;
+    }
+
+    public void populateView() {
+//        String usernameLabelText = String.format("Selamat datang, %s.", username);
+//        labelUsername.setText(usernameLabelText);
     }
 
     /**
@@ -29,6 +36,7 @@ public class Home extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         buttonExit = new javax.swing.JButton();
+        labelUsername = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,28 +50,33 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        labelUsername.setText("Selamat datang");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(buttonExit))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(jLabel1)))
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addGap(149, 149, 149)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(labelUsername)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(8, 8, 8)
+                            .addComponent(jLabel1))
+                        .addComponent(buttonExit)))
+                .addContainerGap(176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel1)
-                .addGap(69, 69, 69)
+                .addGap(47, 47, 47)
+                .addComponent(labelUsername)
+                .addGap(60, 60, 60)
                 .addComponent(buttonExit)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         pack();
@@ -103,7 +116,7 @@ public class Home extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Home().setVisible(true);
+                new Home("").setVisible(true);
             }
         });
     }
@@ -111,5 +124,6 @@ public class Home extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonExit;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labelUsername;
     // End of variables declaration//GEN-END:variables
 }
